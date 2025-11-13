@@ -5,7 +5,7 @@ public class Point : MonoBehaviour
     [SerializeField] private Material red;
     [SerializeField] private Material green;
     
-    private Renderer renderer;
+    private new Renderer renderer;
     private bool isActive;
     private PointGroup group;
     
