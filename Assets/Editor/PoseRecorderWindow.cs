@@ -72,8 +72,27 @@ public class PoseRecorderWindow : EditorWindow
 
         if (allBones.Count == 0)
             return;
+        
+        EditorGUILayout.BeginHorizontal();
 
-        GUILayout.Space(10);
+        if (GUILayout.Button("Select All", GUILayout.Width(120)))
+        {
+            for (int i = 0; i < selected.Count; i++)
+                selected[i] = true;
+
+            SceneView.RepaintAll();
+        }
+
+        if (GUILayout.Button("Deselect All", GUILayout.Width(120)))
+        {
+            for (int i = 0; i < selected.Count; i++)
+                selected[i] = false;
+
+            SceneView.RepaintAll();
+        }
+
+        EditorGUILayout.EndHorizontal();
+        
         scroll = GUILayout.BeginScrollView(scroll);
 
         for (int i = 0; i < allBones.Count; i++)
