@@ -24,14 +24,35 @@ public class PointApplier : MonoBehaviour
         }
     }
 
-    private void ClearPoints()
+    public void ClearPoints()
     {
+        bool removedAny = false;
+        
         foreach (var p in spawnedPoints)
         {
             if (p != null)
-                Destroy(p);
+                DestroyImmediate(p);
+            removedAny = true;
         }
         spawnedPoints.Clear();
+
+        if (removedAny) return;
+        
+        GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+
+        foreach (var obj in allObjects)
+        {
+            if (obj.name.Contains("Point(Clone)"))
+            {
+                DestroyImmediate(obj);
+                removedAny = true;
+            }
+        }
+
+        if (removedAny)
+            Debug.Log("Fallback cleanup: Removed GameObjects containing 'Point'.");
+        else
+            Debug.Log("No points found to delete.");
     }
 
     public void SpawnPoints(PoseData pose)

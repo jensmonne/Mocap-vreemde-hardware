@@ -30,7 +30,12 @@ public class PointGroup : MonoBehaviour
     
     private void CheckCompletion()
     {
-        if (activeCount != points.Count) return;
+        if (activeCount != points.Count)
+        {
+            Debug.Log($"{activeCount} / {points.Count} Activated");
+            return;
+        }
+        
         Debug.Log($"Group {name} completed!");
         manager.OnGroupCompleted(this);
     }

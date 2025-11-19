@@ -20,5 +20,11 @@ public class PointApplierEditor : Editor
             var pa = (PointApplier)target;
             pa.SpawnPoints(poseToApply);
         }
+        
+        if (GUILayout.Button("Remove Points"))
+        {
+            var pa = (PointApplier)target;
+            pa.ClearPoints();
+        }
     }
 }
