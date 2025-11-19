@@ -1,10 +1,8 @@
-using TMPro;
 using UnityEngine;
 
 public class PointManager : MonoBehaviour
 {
     public static PointManager Instance;
-    [SerializeField] private TMP_Text pointsText;
     [SerializeField] private GameObject oldpointPrefab;
     [SerializeField] private GameObject pointGroupPrefab;
     private bool t;
@@ -25,10 +23,6 @@ public class PointManager : MonoBehaviour
         if (!t)
         {
             NextPose();
-        }
-        else
-        {
-            pointsText.text = "You did it!!! 😁👌";
         }
     }
 

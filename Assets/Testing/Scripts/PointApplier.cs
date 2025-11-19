@@ -36,15 +36,15 @@ public class PointApplier : MonoBehaviour
         }
         spawnedPoints.Clear();
 
-        if (removedAny) return;
+        if (removedAny && avatarRoot == null) return;
         
-        GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        Transform[] allChildren = avatarRoot.GetComponentsInChildren<Transform>(true);
 
-        foreach (var obj in allObjects)
+        foreach (Transform child in allChildren)
         {
-            if (obj.name.Contains("Point(Clone)"))
+            if (child.name.Contains("Point"))
             {
-                DestroyImmediate(obj);
+                DestroyImmediate(child.gameObject);
                 removedAny = true;
             }
         }
