@@ -30,9 +30,9 @@ public class PointGroup : MonoBehaviour
     
     private void CheckCompletion()
     {
-        if (activeCount != points.Count)
+        if ((activeCount + 5) != points.Count)
         {
-            Debug.Log($"{activeCount} / {points.Count} Activated");
+            //Debug.Log($"{activeCount} / {points.Count} Activated");
             return;
         }
         

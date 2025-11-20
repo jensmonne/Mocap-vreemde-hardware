@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PointManager : MonoBehaviour
 {
     public static PointManager Instance;
     
-    public bool PlayerHasCompletedPose { get; private set; }
+    public event Action<PointGroup> OnPoseCompleted;
 
     private void Awake()
     {
@@ -16,9 +17,9 @@ public class PointManager : MonoBehaviour
         Instance = this;
     }
     
-    public void OnGroupCompleted(PointGroup group)
+    public void OnGroupCompleted(PointGroup group)  
     {
         Debug.Log($"Player has completed group {group.name}");
-        PlayerHasCompletedPose = true;
+        OnPoseCompleted.Invoke(group);
     }
 }

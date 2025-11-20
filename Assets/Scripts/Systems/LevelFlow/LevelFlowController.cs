@@ -1,15 +1,31 @@
 using System.Collections;
+using AscentProtocol.SceneManagement;
 using UnityEngine;
 
 public class LevelFlowController : MonoBehaviour
 {
-    public FlowState state = FlowState.LoadingPose;
+    public FlowState state = FlowState.WaitingForPlayerPose;
     
-    private int poseIndex = 0;
-    private int sceneIndex = 0;
+    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private PlayerMover playerMover;
+    
+    //private int poseIndex = 0;
+    private int sceneIndex = 2;
+    private bool poseCompleted = false;
 
     private void Start()
     {
+        if (playerMover == null)
+        {
+            playerMover = FindAnyObjectByType<PlayerMover>();
+        }
+        
+        PointManager.Instance.OnPoseCompleted += _ =>
+        {
+            poseCompleted = true;
+            Debug.Log("Pose completed");
+        };
+        
         StartCoroutine(RunFlow());
     }
 
@@ -19,22 +35,31 @@ public class LevelFlowController : MonoBehaviour
         {
             switch (state)
             {
-                case FlowState.LoadingPose:
-                    break;
                 case FlowState.WaitingForPlayerPose:
-                    yield return new WaitUntil(() => PointManager.Instance.PlayerHasCompletedPose);
+                    poseCompleted = false;
+                    yield return new WaitUntil(() => poseCompleted);
                     state = FlowState.PoseCompleted;
                     break;
                 case FlowState.PoseCompleted:
                     state = FlowState.PlayingAnimations;
                     break;
                 case FlowState.PlayingAnimations:
+                    state = FlowState.LoadingNextScene;
+                    break;
+                case FlowState.LoadingNextScene:
+                    bool sceneLoaded = false;
+                    sceneLoader.Load($"Level{sceneIndex}", () =>
+                    {
+                        sceneLoaded = true;
+                        sceneIndex++;
+                    });
+                    
+                    yield return new WaitUntil(() => sceneLoaded);
                     state = FlowState.MovingPlayer;
                     break;
                 case FlowState.MovingPlayer:
-                    
-                    break;
-                case FlowState.LoadingNextScene:
+                    playerMover.MovePlayer();
+                    state = FlowState.WaitingForPlayerPose;
                     break;
             }
 

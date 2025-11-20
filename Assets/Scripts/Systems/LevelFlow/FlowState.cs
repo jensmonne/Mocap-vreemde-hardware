@@ -4,6 +4,6 @@ public enum FlowState
     WaitingForPlayerPose,
     PoseCompleted,
     PlayingAnimations,
-    MovingPlayer,
-    LoadingNextScene
+    LoadingNextScene,
+    MovingPlayer
 }

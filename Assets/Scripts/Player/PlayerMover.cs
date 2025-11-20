@@ -3,50 +3,45 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Transform player;
-
-    [Header("Movement")]
-    [SerializeField] private float moveDuration = 2f;
-    [SerializeField] private float moveDistance = 3f;
     
-    private Coroutine moveRoutine;
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 2f;
+    
+    private Coroutine moveRoutine;  
     
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("PlayerStop")) return;
         
-        if (moveRoutine != null)
-        {
-            StopCoroutine(moveRoutine);
-            moveRoutine = null;
-        }
+        StopMovement();
     }
 
     public void MovePlayer()
     {
-        if (moveRoutine != null)
-            StopCoroutine(moveRoutine);
+        if (moveRoutine != null) return;
 
-        moveRoutine = StartCoroutine(LerpMove());
+        moveRoutine = StartCoroutine(MoveForward());
     }
     
-    private System.Collections.IEnumerator LerpMove()
+    public void StopMovement()
     {
-        Vector3 startPos = player.position;
-        Vector3 endPos = startPos + player.forward * moveDistance;
+        if (moveRoutine == null) return;
 
-        float t = 0f;
-
-        while (t < moveDuration)
+        StopCoroutine(moveRoutine);
+        moveRoutine = null;
+    }
+    
+    private System.Collections.IEnumerator MoveForward()
+    {
+        while (true)
         {
-            t += Time.deltaTime;
-            float lerpValue = t / moveDuration;
-
-            player.position = Vector3.Lerp(startPos, endPos, lerpValue);
+            player.position = Vector3.Lerp(
+                player.position,
+                player.position + player.forward,
+                Time.deltaTime * moveSpeed
+            );
 
             yield return null;
         }
-
-        player.position = endPos;
-        moveRoutine = null;
     }
 }
