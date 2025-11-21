@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553698838}
   - component: {fileID: 553698837}
+  - component: {fileID: 553698839}
   m_Layer: 6
   m_Name: Trigger
   m_TagString: PlayerStop
@@ -172,6 +173,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553698839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553698836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea27d1f41c72d8e43aeb93a9e0365948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopTriggers
+  pointGroup: {fileID: 0}
+  hasGroup: 0
 --- !u!1 &1014108978
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,12 @@ public class PlayerMover : MonoBehaviour
     
     private Coroutine moveRoutine;  
     
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("PlayerStop")) return;
         
         StopMovement();
-    }
+    }*/
 
     public void MovePlayer()
     {
