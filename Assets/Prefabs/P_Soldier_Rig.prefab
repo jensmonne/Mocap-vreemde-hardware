@@ -3988,7 +3988,7 @@ GameObject:
   - component: {fileID: 5776040689606442432}
   - component: {fileID: 3162913624461369265}
   m_Layer: 0
-  m_Name: Soldier_Rig
+  m_Name: P_Soldier_Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
