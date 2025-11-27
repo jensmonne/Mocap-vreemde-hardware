@@ -8,13 +8,6 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     
     private Coroutine moveRoutine;  
-    
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("PlayerStop")) return;
-        
-        StopMovement();
-    }*/
 
     public void MovePlayer()
     {

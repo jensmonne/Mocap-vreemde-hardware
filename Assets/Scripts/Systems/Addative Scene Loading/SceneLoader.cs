@@ -64,7 +64,7 @@ namespace AscentProtocol.SceneManagement
             Debug.Log($"Unloading scene: {sceneName}");
             AsyncOperation operation = SceneManager.UnloadSceneAsync(sceneName);
 
-            yield return new WaitUntil(() => operation.isDone);
+            yield return new WaitUntil(() => operation != null && operation.isDone);
 
             _loadedScenes.Remove(sceneName);
             Debug.Log($"Scene '{sceneName}' unloaded successfully.");
