@@ -298,17 +298,17 @@ PrefabInstance:
     - target: {fileID: 7750085513365212563, guid: b937ceacd603c2d4388765400cbe4add,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.8611
+      value: -3.8410733
       objectReference: {fileID: 0}
     - target: {fileID: 7750085513365212563, guid: b937ceacd603c2d4388765400cbe4add,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9558
+      value: 5.9174066
       objectReference: {fileID: 0}
     - target: {fileID: 7750085513365212563, guid: b937ceacd603c2d4388765400cbe4add,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.7747
+      value: 4.86
       objectReference: {fileID: 0}
     - target: {fileID: 7750085513365212563, guid: b937ceacd603c2d4388765400cbe4add,
         type: 3}
@@ -682,7 +682,7 @@ Transform:
   m_GameObject: {fileID: 323155230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.02588, y: 7.05831, z: 98.65816}
+  m_LocalPosition: {x: -3.9058802, y: 7.05831, z: 99.31815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2254,7 +2254,7 @@ PrefabInstance:
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2619615
+      value: 5.15
       objectReference: {fileID: 0}
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
@@ -2935,7 +2935,7 @@ PrefabInstance:
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4596605
+      value: -3.39
       objectReference: {fileID: 0}
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
@@ -3157,7 +3157,7 @@ PrefabInstance:
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2619615
+      value: 5.15
       objectReference: {fileID: 0}
     - target: {fileID: 6481354478351416615, guid: f9d5ae8ff4c88984bbf1dd17fe81ad89,
         type: 3}
@@ -4242,7 +4242,7 @@ Transform:
   m_GameObject: {fileID: 1963182757}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.35, y: 0, z: 103.58}
+  m_LocalPosition: {x: 0.77, y: 0, z: 104.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
