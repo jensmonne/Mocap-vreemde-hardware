@@ -142,7 +142,7 @@ MonoBehaviour:
   - {fileID: 877738637}
   - {fileID: 0}
   - {fileID: 877738638}
-  - {fileID: 877738639}
+  - {fileID: 0}
   - {fileID: 877738644}
   - {fileID: 877738640}
   - {fileID: 877738645}
@@ -819,12 +819,6 @@ Transform:
 --- !u!4 &877738638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4317820167067834193, guid: 1f048a92013fa8240919acd9640bb86d,
-    type: 3}
-  m_PrefabInstance: {fileID: 877738623}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &877738639 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2987976083590071306, guid: 1f048a92013fa8240919acd9640bb86d,
     type: 3}
   m_PrefabInstance: {fileID: 877738623}
   m_PrefabAsset: {fileID: 0}
