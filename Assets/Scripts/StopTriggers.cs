@@ -1,17 +1,19 @@
 using AscentProtocol.SceneManagement;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StopTriggers : MonoBehaviour
 {
     [SerializeField] private PointGroup pointGroup;
-    [SerializeField] private bool hasGroup = true;
-    [SerializeField] private GameObject canvas;
+    [SerializeField] private bool StopPlayer = true;
+    
+    [SerializeField] private UnityEvent onTriggered;
     
     private bool hasActivated = false;
 
     private void Start()
     {
-        if (pointGroup == null && hasGroup)
+        if (pointGroup == null)
         {
             pointGroup = FindAnyObjectByType<PointGroup>();
         }
@@ -20,15 +22,10 @@ public class StopTriggers : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") || hasActivated) return;
-        
         hasActivated = true;
-        
-        SceneObjectRegistry.Instance.Get("Player").GetComponentInChildren<PlayerMover>().StopMovement();
-        if (!hasGroup)
-        {
-            canvas.SetActive(true);
-            return;
-        }
+        if (StopPlayer) 
+            SceneObjectRegistry.Instance.Get("Player").GetComponentInChildren<PlayerMover>().StopMovement();
+        onTriggered?.Invoke();
         pointGroup.EnablePoints();
     }
 }

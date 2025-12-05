@@ -17,8 +17,13 @@ public class Painting : MonoBehaviour
     
     public void UILoadWorld()
     {
-        sceneLoader.Load("Level1");
-        sceneLoader.Unload("Museum");
+        sceneLoader.Load("Level1", () =>
+        {
+            sceneLoader.Load("Level2", () =>
+            {
+                sceneLoader.Unload("Museum");
+            });
+        });
     }
     
     public void OnHoverEnter()
