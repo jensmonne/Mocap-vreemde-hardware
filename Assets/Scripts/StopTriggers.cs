@@ -25,7 +25,7 @@ public class StopTriggers : MonoBehaviour
         hasActivated = true;
         if (StopPlayer) 
             SceneObjectRegistry.Instance.Get("Player").GetComponentInChildren<PlayerMover>().StopMovement();
+            pointGroup.EnablePoints();
         onTriggered?.Invoke();
-        pointGroup.EnablePoints();
     }
 }
